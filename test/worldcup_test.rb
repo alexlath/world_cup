@@ -28,4 +28,12 @@ class WorldCupTest < Minitest::Test
     assert_equal 2018, @world_cup.year
     assert_equal [@france, @croatia], @world_cup.teams
   end
+
+  def test_it_can_list_active_players_by_position
+    assert_equal [@pogba, @modric], @world_cup.active_players_by_position("midfielder")
+
+    @croatia.eliminated = true
+
+    assert_equal [@pogba], @world_cup.active_players_by_position("midfielder")
+  end
 end
