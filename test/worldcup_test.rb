@@ -19,7 +19,13 @@ class WorldCupTest < Minitest::Test
     @croatia.add_player(@vida)
     @world_cup = WorldCup.new(2018, [@france, @croatia])
   end
+
   def test_it_can_exist
     assert_instance_of WorldCup, @world_cup
+  end
+
+  def test_it_has_attributes
+    assert_equal 2018, @world_cup.year
+    assert_equal [@france, @croatia], @world_cup.teams
   end
 end
